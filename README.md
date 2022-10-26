@@ -1,5 +1,6 @@
 # RenameFitsHeader
 
+**Renames Headers in multiple files (in the folders or subfolders)**
 
 At the moment the script renames only "Filter" value **in the .fit or .fits Header**. 
 
