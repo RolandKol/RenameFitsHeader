@@ -9,13 +9,19 @@ At the end the script will generate .csv file with the list of amended files or 
 
 **Please note:**
 
-The script will Not change file ames, - Only the HEADER value inside the file will be changed.
+.xsif files are not supported.
 
-Useful for astrophotography
+The script will Not change file names, - Only the HEADER value inside the file will be changed.
+
+Useful for Astrophotography
 
 Especially if during some sessions the different software was used for imaging
 and the stacking software cannot recognise the correct filter.
 
+**Work in Progress:**
+
+1) Progress bar.
+2) Additional Header to Select for amendment, for example: "Object name", "Session" and etc.
 
 
 

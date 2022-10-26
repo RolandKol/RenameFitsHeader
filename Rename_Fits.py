@@ -87,13 +87,13 @@ if sub_folder_q == "n":
     print('\nCollecting filenames... please wait')
     mfiles = [os.path.join(path, f)
               for f in os.listdir(path)
-              if f.endswith(('.fit', '.fits'))]
+              if f.lower().endswith(('.fit', '.fits'))]
 elif sub_folder_q == "y":
     print('\nCollecting filenames... please wait')
     mfiles = [os.path.join(root, name)
               for root, dirs, files in os.walk(path)
               for name in files
-              if name.lower().endswith(('.fit', '.fits', '.xisf'))]
+              if name.lower().endswith(('.fit', '.fits'))]
 else:
     print('Canceled, - Your answer was not clear enough')
     exit()
