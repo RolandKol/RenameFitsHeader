@@ -1,5 +1,6 @@
 # RenameFitsHeader
-' At the moment it renames only "Filter" value in the .fit or .fits header
-' user will be asked to choose folder and filter names
+' At the moment it renames only "Filter" value in the .fit or .fits header. 
+' The user will be asked to choose the folder and the Old/New filter names
+
 ' useful for astrophotography
 
