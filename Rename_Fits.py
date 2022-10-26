@@ -93,7 +93,7 @@ elif sub_folder_q == "y":
     mfiles = [os.path.join(root, name)
               for root, dirs, files in os.walk(path)
               for name in files
-              if name.endswith(('.fit', '.fits'))]
+              if name.lower().endswith(('.fit', '.fits', '.xisf'))]
 else:
     print('Canceled, - Your answer was not clear enough')
     exit()
@@ -109,7 +109,7 @@ def rename_filters(old_filter_name, new_filter_name):
         for f in mfiles:
             try:
                 with fits.open(f, mode='update') as astro_f:
-                    if old_filter_name.upper() in astro_f[0].header['FILTER'].upper():
+                    if old_filter_name.upper() in astro_f[0].header['FILTER']:
                         astro_f[0].header['FILTER'] = new_filter_name
                         f_counter = f_counter + 1
                         process_dict.update({f: f_counter})
