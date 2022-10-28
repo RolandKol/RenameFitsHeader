@@ -6,6 +6,7 @@ import tkinter as tk
 import os
 from astropy.io import fits
 
+# https://stackoverflow.com/questions/63826035/how-to-use-tqdm-with-multithreading
 
 filter_dict = {}  # dictionary holding old Filter name as Key and new filter name as item.
 process_dict = {}  # dictionary holding files names with amended filters
