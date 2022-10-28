@@ -40,7 +40,7 @@ def num_to_change():
 
 filter_dict = {}  # dictionary holding old Filter name as Key and new filter name as item.
 process_dict = {}  # dictionary holding files names with amended filters
-error_list_dict = {} # dictionary holding Errors if any
+error_list_dict = {}  # dictionary holding Errors if any
 
 amount_of_filters = num_to_change()
 
@@ -93,7 +93,7 @@ elif sub_folder_q == "y":
     mfiles = [os.path.join(root, name)
               for root, dirs, files in os.walk(path)
               for name in files
-              if name.lower().endswith(('.fit', '.fits', '.xisf'))]
+              if name.lower().endswith(('.fit', '.fits'))]
 else:
     print('Canceled, - Your answer was not clear enough')
     exit()
@@ -124,19 +124,14 @@ def rename_filters(old_filter_name, new_filter_name):
 
 threads = []
 
-
-def start_threads(arg1, arg2):
-    th = threading.Thread(target=rename_filters, args=(arg1, arg2))
+for k, val in filter_dict.items():
+    th = threading.Thread(target=rename_filters, args=(k, val))
     # th_num.daemon = True
     th.start()
     threads.append(th)
 
-
-for k, val in filter_dict.items():
-    start_threads(k, val)
-
-for x in threads:
-    x.join()
+for th in threads:
+    th.join()
 
 sleep(0.1)
 end = time.time()
@@ -163,7 +158,6 @@ if len(error_list_dict) > 0:
     with open('Error_List.csv', 'w') as f:
         w = csv.writer(f)
         w.writerows(error_list_dict.items())
-
 
 print(f'\n\n{bcolors.WARNING}Press ENTER to finish or simply close the window{bcolors.ENDC}')
 finito = input("")
